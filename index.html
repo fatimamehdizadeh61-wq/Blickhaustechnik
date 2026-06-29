@@ -3,225 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blickhaustechnik - SHK Meisterbetrieb in Achim & Bremen</title>
+<title>Blickhaustechnik - SHK Fachbetrieb</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-body {
+/* --- متغیرهای رنگی برای طراحی حرفه‌ای --- */
+:root {
+    --primary-color: #0A4D8C; /* آبی تیره اصلی */
+    --accent-color: #FFD43B; /* زرد آفتابی */
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-light: #f9f9f9;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
     scroll-behavior: smooth;
 }
 
-/* منوی بالای صفحه */
+/* --- منوی بالایی حرفه‌ای (شیشه‌ای) --- */
 nav {
-    background: #0A4D8C;
+    background: rgba(10, 77, 140, 0.95);
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    box-sizing: border-box;
+    padding: 15px 5%;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-nav .logo {
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
+nav .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* --- استایل لوگو --- */
+nav .logo-image {
+    max-height: 50px; /* اندازه لوگو */
+    margin-right: 15px;
+}
+
+nav .logo-text {
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 1px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 nav ul li a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #FFD43B;
+    color: var(--accent-color);
 }
 
-/* هدر اصلی سایت */
+/* --- هدر اصلی با عکس پس‌زمینه --- */
 header {
-    background: #0A4D8C;
-    color: white;
-    padding: 120px 20px 80px 20px;
+    background: linear-gradient(rgba(10, 77, 140, 0.8), rgba(10, 77, 140, 0.9)), 
+                url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop'); /* عکس پس‌زمینه باکیفیت مرتبط با SHK */
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    padding: 180px 10% 120px 10%;
     text-align: center;
 }
 
 header h1 {
-    font-size: 50px;
-    margin: 0 0 10px 0;
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 header p {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 300;
 }
 
 .button {
     display: inline-block;
-    padding: 15px 35px;
-    background: #FFD43B;
-    color: black;
+    padding: 20px 45px;
+    background: var(--accent-color);
+    color: var(--text-dark);
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s;
+    border-radius: 50px; /* دکمه گرد شده */
+    font-weight: 700;
+    font-size: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 212, 59, 0.4);
 }
 
 .button:hover {
     background: #e0b825;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 212, 59, 0.5);
 }
 
+/* --- بخش‌های عمومی --- */
 section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 80px 20px;
+    padding: 100px 10%;
 }
 
 h2 {
-    color:#0A4D8C;
-    font-size: 36px;
+    color: var(--primary-color);
+    font-size: 42px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    font-weight: 700;
 }
 
-/* بخش خدمات */
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.08);
-    text-align: center;
-}
-
-.card h3 {
-    font-size: 22px;
-    margin-top: 0;
-    color: #0A4D8C;
-}
-
-/* بخش درباره ما */
+/* --- بخش درباره من --- */
 #ueber-uns {
-    background: white;
+    background: var(--bg-light);
 }
 
 .about-content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
     align-items: center;
-    gap: 40px;
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
     font-size: 18px;
-    line-height: 1.6;
+    color: #444;
 }
 
-/* بخش تماس */
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.about-text strong {
+    color: var(--primary-color);
+}
+
+.about-image {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- بخش تماس با فرم حرفه‌ای --- */
 #kontakt {
-    background: #eef3f7;
+    background: #fff;
 }
 
-.contact-grid {
+.contact-container {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    gap: 60px;
+}
+
+/* اطلاعات تماس */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .contact-info ul {
     list-style: none;
-    padding: 0;
-    font-size: 18px;
 }
 
 .contact-info li {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
 }
 
+.contact-info i {
+    font-size: 30px;
+    color: var(--accent-color);
+    background: rgba(255, 212, 59, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
 .contact-info span {
-    margin-right: 15px;
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* فرم تماس جدید و شیک */
+.contact-form {
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.contact-form .input-group {
+    margin-bottom: 25px;
 }
 
 .contact-form input, .contact-form textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    padding: 18px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 212, 59, 0.2);
+    outline: none;
 }
 
 .contact-form textarea {
-    height: 120px;
+    height: 160px;
     resize: vertical;
 }
 
 .contact-form button {
-    background: #0A4D8C;
-    color: white;
+    background: var(--primary-color);
+    color: var(--text-light);
     border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 6px;
+    padding: 20px 40px;
+    font-size: 18px;
+    border-radius: 50px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
     width: 100%;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(10, 77, 140, 0.3);
 }
 
 .contact-form button:hover {
     background: #073460;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 77, 140, 0.4);
 }
 
+/* --- فوتر --- */
 footer {
-    background: #0A4D8C;
-    color: white;
+    background: var(--primary-color);
+    color: var(--text-light);
     text-align: center;
-    padding: 25px;
+    padding: 40px 10%;
     font-size: 16px;
 }
 
-/* واکنش‌گرایی برای موبایل */
-@media (max-width: 768px) {
-    header h1 { font-size: 36px; }
-    nav ul { display: none; } /* در نسخه موبایل منو ساده می‌شود */
-    .contact-grid { grid-template-columns: 1fr; }
+footer p {
+    margin-bottom: 10px;
+}
+
+/* --- واکنش‌گرایی موبایل --- */
+@media (max-width: 992px) {
+    header h1 { font-size: 48px; }
+    .about-content, .contact-container { grid-template-columns: 1fr; }
+    nav ul { display: none; } /* پنهان کردن منو در موبایل */
 }
 </style>
 
@@ -230,70 +303,74 @@ footer {
 <body>
 
 <nav>
-    <div class="logo">Blickhaustechnik</div>
+    <div class="logo-container">
+        <div class="logo-text">Blickhaustechnik</div>
+    </div>
     <ul>
         <li><a href="#home">Startseite</a></li>
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#ueber-uns">Über mich</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
     </ul>
 </nav>
 
 <header id="home">
     <h1>Blickhaustechnik</h1>
-    <p>Sanitär - Heizung - Klima in Achim & Bremen</p>
-    <a class="button" href="tel:+491629667577">Jetzt anrufen</a>
+    <p>Sanitär - Heizung - Klima Fachbetrieb</p>
+    <a class="button" href="tel:+491629667577">
+        <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> Jetzt anrufen
+    </a>
 </header>
 
-<section id="leistungen">
-    <h2>Unsere Leistungen (SHK)</h2>
-    <div class="services">
-        <div class="card">
-            <h3>🚿 Sanitärinstallation</h3>
-            <p>Moderne Badsanierung, Installation von Sanitäranlagen und Armaturen.</p>
-        </div>
-        <div class="card">
-            <h3>🔥 Heizungstechnik</h3>
-            <p>Wartung, Reparatur und Installation von Heizungsanlagen.</p>
-        </div>
-        <div class="card">
-            <h3>❄️ Klima & Lüftung</h3>
-            <p>Lüftungstechnik und Klimalösungen für ein angenehmes Raumklima.</p>
-        </div>
-        <div class="card">
-            <h3>🔧 Notdienst & Reparatur</h3>
-            <p>Zuverlässige Hilfe bei Rohrbrüchen und akuten SHK-Problemen.</p>
-        </div>
-    </div>
-</section>
-
 <section id="ueber-uns">
-    <h2>Über uns</h2>
+    <h2>Über mich</h2>
     <div class="about-content">
         <div class="about-text">
-            <h3>Ihr SHK-Experte: Nazir Golami</h3>
-            <p>Mein Name ist <strong>Nazir Golami</strong>. Als erfahrener Fachmann im Bereich <strong>SHK (Sanitär, Heizung, Klima)</strong> bin ich Ihr zuverlässiger Ansprechpartner in Achim, Bremen und Umgebung.</p>
-            <p>Egal ob es um die Planung und Sanierung Ihres neuen Badezimmers, die Installation moderner Heizsysteme oder schnelle Reparaturen geht – ich stehe für höchste handwerkliche Qualität, Zuverlässigkeit und saubere Arbeit.</p>
+            <p>Mein Name ist <strong>Nazir Golami</strong>. Als erfahrener SHK-Fachmann (Sanitär, Heizung, Klima) bin ich Ihr zuverlässiger Partner in Achim, Bremen und Umgebung.</p>
+            <p>Ganz gleich, ob es um die Badsanierung, die Optimierung Ihrer Heizungsanlage, Klimatechnik oder akute Reparatur- und Installationsarbeiten geht – ich stehe Ihnen mit fachmännischem Rat und handwerklichem Können zur Seite.</p>
+            <p>Sauberkeit, Zuverlässigkeit und eine präzise Arbeitsweise haben für mich oberste Priorität. Gerne berate ich Sie individuell vor Ort, um die beste Lösung für Ihr Anliegen zu finden. Nehmen Sie einfach unverbindlich Kontakt mit mir auf – ich freue mich auf Ihre Anfrage!</p>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=1000&auto=format&fit=crop" alt="SHK Expertise" class="about-image">
         </div>
     </div>
 </section>
 
 <section id="kontakt">
-    <h2>Kontaktieren Sie uns</h2>
-    <div class="contact-grid">
+    <h2>Kontaktieren Sie mich</h2>
+    <div class="contact-container">
+        
         <div class="contact-info">
-            <h3>Erreichen Sie uns direkt</h3>
+            <h3>Ich bin direkt erreichbar</h3>
             <ul>
-                <li><span>📞</span> <strong>Telefon:</strong> <a href="tel:+491629667577" style="color:#0A4D8C; text-decoration:none;">+49 162 9667577</a></li>
-                <li><span>📍</span> <strong>Adresse:</strong> Bremer Straße 1, 28832 Achim</li>
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Mobil:</strong><br>
+                        <a href="tel:+491629667577">+49 162 9667577</a>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Adresse:</strong><br>
+                        Bremer Straße 1,<br>
+                        28832 Achim
+                    </div>
+                </li>
             </ul>
         </div>
         
         <div class="contact-form">
-            <form action="mailto:info@blickhaustechnik.de" method="POST" enctype="text/plain">
-                <input type="text" name="Name" placeholder="Ihr Name" required>
-                <input type="email" name="E-Mail" placeholder="Ihre E-Mail-Adresse" required>
-                <textarea name="Nachricht" placeholder="Ihre Nachricht..." required></textarea>
+            <form action="mailto:blickhaustechnik@outlook.de" method="POST" enctype="text/plain">
+                <div class="input-group">
+                    <input type="text" name="Name" placeholder="Ihr Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="E-Mail" placeholder="Ihre E-Mail-Adresse" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="Nachricht" placeholder="Ihre Nachricht..." required></textarea>
+                </div>
                 <button type="submit">Nachricht senden</button>
             </form>
         </div>
@@ -301,7 +378,8 @@ footer {
 </section>
 
 <footer>
-    © 2026 Blickhaustechnik - Sanitär, Heizung, Klima. Alle Rechte vorbehalten.
+    <p>© 2026 Blickhaustechnik - Sanitär, Heizung, Klima.</p>
+    <p>Bremer Straße 1, 28832 Achim</p>
 </footer>
 
 </body>
